@@ -32,7 +32,3 @@ const Navbar = ({ toggleDrawer }) => {
 };
 
 export default Navbar;
-  );
-};
-
-export default Navbar;
