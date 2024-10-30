@@ -39,20 +39,19 @@ const ThemeSelector = ({ onThemeChange }) => {
   const [selectedTheme, setSelectedTheme] = useState("default"); // Default theme state
 
   // Function to apply the selected theme by setting `data-theme` on the root <html> element
-  const applyTheme = useCallback(
-    (theme) => {
-      document.documentElement.setAttribute("data-theme", theme); // Changes theme across the app
-      setSelectedTheme(theme); // Updates local component state with the selected theme
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute("data-theme", theme); // Changes theme across the app
+    setSelectedTheme(theme); // Updates local component state with the selected theme
+    if (onThemeChange) {
       onThemeChange(theme); // Notify parent component of theme change
-    },
-    [onThemeChange]
-  );
+    }
+  };
 
   // useEffect hook: Runs only on initial render to load the saved theme from localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") || "default"; // Gets saved theme or defaults to 'default'
     applyTheme(savedTheme); // Applies the initial theme
-  }, [applyTheme]);
+  }, []);
 
   // useEffect hook: Saves the selected theme to localStorage whenever it changes
   useEffect(() => {
