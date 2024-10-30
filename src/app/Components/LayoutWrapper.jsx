@@ -2,7 +2,7 @@
 "use client";
 import React, { useState } from "react";
 import Navbar from "./Navbar";
-import SidebarDrawer from "./SIdeDrawer";
+import SideDrawer from "./SIdeDrawer";
 
 const LayoutWrapper = ({ children }) => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
@@ -15,8 +15,8 @@ const LayoutWrapper = ({ children }) => {
   return (
     <>
       <Navbar toggleDrawer={toggleDrawer} />
-      <SidebarDrawer isOpen={isDrawerOpen} toggleDrawer={toggleDrawer} />
-      {children}
+      <SideDrawer isOpen={isDrawerOpen} toggleDrawer={toggleDrawer} />
+      <div className="main-content">{children}</div>
     </>
   );
 };
