@@ -36,7 +36,7 @@ const themes = [
 ];
 
 const ThemeSelector = () => {
-  const [selectedTheme, setSelectedTheme] = useState("light"); // Default theme state
+  const [selectedTheme, setSelectedTheme] = useState("default"); // Default theme state
 
   // Function to apply the selected theme by setting `data-theme` on the root <html> element
   const applyTheme = (theme) => {
@@ -46,7 +46,7 @@ const ThemeSelector = () => {
 
   // useEffect hook: Runs only on initial render to load the saved theme from localStorage
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "light"; // Gets saved theme or defaults to 'light'
+    const savedTheme = localStorage.getItem("theme") || "default"; // Gets saved theme or defaults to 'default'
     applyTheme(savedTheme); // Applies the initial theme
   }, []);
 
@@ -56,29 +56,34 @@ const ThemeSelector = () => {
   }, [selectedTheme]);
 
   return (
-    <div className="dropdown dropdown-end">
-      {/* Dropdown-triggering button, positioned to align right using `dropdown-end` */}
-      <button className="btn btn-ghost">
-        {/* btn btn-ghost: DaisyUI button style with no background or shadow */}
-        Theme: {selectedTheme.charAt(0).toUpperCase() +
-          selectedTheme.slice(1)}{" "}
-        {/* Displays current theme */}
-      </button>
-
-      {/* Dropdown content: Contains the list of theme options */}
-      <ul className="dropdown-content menu p-2 shadow bg-base-200 rounded-box w-48">
+    <div className="dropdown">
+      <div tabIndex={0} role="button" className="btn m-1">
+        Theme
+        <svg
+          width="12px"
+          height="12px"
+          className="inline-block h-2 w-2 fill-current opacity-60"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 2048 2048"
+        >
+          <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
+        </svg>
+      </div>
+      <ul
+        tabIndex={0}
+        className="dropdown-content bg-base-300 rounded-box z-[1] w-52 p-2 shadow-2xl"
+      >
         {themes.map((theme) => (
           <li key={theme}>
-            <button
-              onClick={() => applyTheme(theme)} // Calls applyTheme function on click to change theme
-              className={`w-full text-left ${
-                theme === selectedTheme ? "font-bold" : ""
-              }`}
-              // w-full: full-width button, text-left: aligns text left, font-bold: highlights selected theme
-            >
-              {theme.charAt(0).toUpperCase() + theme.slice(1)}{" "}
-              {/* Capitalizes theme name for display */}
-            </button>
+            <input
+              type="radio"
+              name="theme-dropdown"
+              className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+              aria-label={theme.charAt(0).toUpperCase() + theme.slice(1)}
+              value={theme}
+              checked={selectedTheme === theme}
+              onChange={() => applyTheme(theme)}
+            />
           </li>
         ))}
       </ul>
