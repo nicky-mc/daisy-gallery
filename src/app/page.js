@@ -7,11 +7,11 @@ export default function HomePage() {
       {/* min-h-screen: full viewport height, bg-base-100: light background color */}
 
       {/* Banner section with a background image, positioned centrally */}
-      <section className="relative flex items-center justify-center h-80 bg-cover bg-center bg-[url('/path/to/banner-image.jpg')]">
+      <section className="relative flex items-center justify-center h-80 bg-cover bg-center bg-[url('/theWall.jpg')]">
         <div className="glass p-8 rounded-lg text-center max-w-xl">
           {/* glass: DaisyUI's glass effect, p-8: padding, rounded-lg: rounded corners, text-center: center-aligns text, max-w-xl: max width */}
-          <h1 className="text-4xl font-bold text-white mb-4">
-            Welcome to MyApp
+          <h1 className="text-4xl font-bold text-black mb-4">
+            Welcome To the Daisy Gallery
           </h1>
           {/* text-4xl: large title, font-bold: bold text, text-white: white color, mb-4: margin below */}
           <p className="text-lg text-white mb-6">
