@@ -22,15 +22,15 @@ export default function RetroPhotos() {
   const [activeModal, setActiveModal] = useState(null);
 
   const images = [
-    "https://visitpalmsprings.s3.amazonaws.com/wp-content/uploads/2021/08/11150756/classic-car.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg",
-    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg",
+    "/retro-photo-1.webp.png",
+    "/retro-photo-2.webp.png",
+    "/retro-photo-3.jpeg.png",
+    "/retro-photo-5_cropped.jpg",
+    "/retro-photo-6_cropped.webp",
+    "/retro-photo-7_cropped.webp",
+    "/retro-photo-8_cropped.webp",
+    "/retro-photo-9.jpg",
+    "/retro-photo-4_cropped.jpg",
   ];
   const modalContents = [
     {
@@ -87,7 +87,8 @@ export default function RetroPhotos() {
       {images.map((src, index) => (
         <div key={index} className="flex flex-col items-center">
           <img
-            className="max-h-fit max-w-full rounded-lg"
+            // className="max-h-full max-w-full rounded-lg"
+            className="w-80 h-80 rounded-lg border-r-slate-700 border-2"
             src={src}
             alt={`Gallery Image ${index + 1}`}
           />
@@ -95,7 +96,7 @@ export default function RetroPhotos() {
             className="btn mt-2"
             onClick={() => openModal(`modal_${index}`)}
           >
-            Open Modal
+            Click Here For More Info
           </button>
           <Modal
             id={`modal_${index}`}
