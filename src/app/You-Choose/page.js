@@ -1,11 +1,17 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function YouChoose() {
   const sliderRef = useRef(null);
   const [sliderPosition, setSliderPosition] = useState(50); // Start at 50% (centered)
+  const [isClient, setIsClient] = useState(false);
+
+  // Ensure the component is rendered on the client side
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Handle slider drag
   const handleMouseMove = (e) => {
@@ -18,6 +24,10 @@ export default function YouChoose() {
     setSliderPosition(newSliderPosition);
   };
 
+  if (!isClient) {
+    return null; // Render nothing on the server side
+  }
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
       <h1 className="text-3xl font-bold mb-6">Choose Your Style</h1>
@@ -29,7 +39,7 @@ export default function YouChoose() {
       >
         {/* Full-color classic London photo in the background */}
         <Image
-          src="/Londons_Carnaby_Street,_1966.jpg"
+          src="/Londons_Carnaby_Street.jpg"
           alt="Full-color version of classic London"
           fill
           className="object-cover"
@@ -41,7 +51,7 @@ export default function YouChoose() {
           style={{ width: `${sliderPosition}%` }}
         >
           <Image
-            src="/Week10/Week10-assignment/daisy-gallery/public/Londons-Carnaby-Street_black_and_ white.jpeg"
+            src="/Carnabystreet.jpg"
             alt="b&w version of classic London"
             fill
             className="object-cover sepia"
