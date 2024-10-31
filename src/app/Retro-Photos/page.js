@@ -1,349 +1,110 @@
-import LayoutWrapper from "../Components/LayoutWrapper";
-import Navbar from "../Components/Navbar";
-import SideDrawer from "../Components/SIdeDrawer";
-import ThemeSelector from "../Components/themeSelector";
+"use client";
+
+import { useState } from "react";
+
+function Modal({ id, title, content, onClose }) {
+  return (
+    <dialog id={id} className="modal">
+      <div className="modal-box">
+        <h3 className="font-bold text-lg">{title}</h3>
+        <p className="py-4">{content}</p>
+        <div className="modal-action flex justify-center">
+          <button onClick={onClose} className="btn">
+            Close
+          </button>
+        </div>
+      </div>
+    </dialog>
+  );
+}
 
 export default function RetroPhotos() {
+  const [activeModal, setActiveModal] = useState(null);
+
+  const images = [
+    "https://visitpalmsprings.s3.amazonaws.com/wp-content/uploads/2021/08/11150756/classic-car.jpg",
+    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg",
+    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg",
+    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg",
+    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg",
+    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg",
+    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg",
+    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg",
+    "https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg",
+  ];
+  const modalContents = [
+    {
+      title: "Gallery Image 1",
+      content: "This is the first image in the gallery.",
+    },
+    {
+      title: "Gallery Image 2",
+      content: "This is the second image in the gallery.",
+    },
+    {
+      title: "Gallery Image 3",
+      content: "This is the third image in the gallery.",
+    },
+    {
+      title: "Gallery Image 4",
+      content: "This is the fourth image in the gallery.",
+    },
+    {
+      title: "Gallery Image 5",
+      content: "This is the fifth image in the gallery.",
+    },
+    {
+      title: "Gallery Image 6",
+      content: "This is the sixth image in the gallery.",
+    },
+    {
+      title: "Gallery Image 7",
+      content: "This is the seventh image in the gallery.",
+    },
+    {
+      title: "Gallery Image 8",
+      content: "This is the eighth image in the gallery.",
+    },
+    {
+      title: "Gallery Image 9",
+      content: "This is the ninth image in the gallery.",
+    },
+  ];
+  const openModal = (id) => {
+    setActiveModal(id);
+    document.getElementById(id).showModal();
+  };
+
+  const closeModal = () => {
+    if (activeModal) {
+      document.getElementById(activeModal).close();
+      setActiveModal(null);
+    }
+  };
+
   return (
-    <>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div>
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+      {images.map((src, index) => (
+        <div key={index} className="flex flex-col items-center">
           <img
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg"
-            alt=""
+            className="max-h-fit max-w-full rounded-lg"
+            src={src}
+            alt={`Gallery Image ${index + 1}`}
           />
-          {/* Open the modal using document.getElementById('ID').showModal() method */}
           <button
-            className="btn"
-            onClick={() => document.getElementById("my_modal_1").showModal()}
+            className="btn mt-2"
+            onClick={() => openModal(`modal_${index}`)}
           >
-            open modal
+            Open Modal
           </button>
-          <dialog id="my_modal_1" className="modal">
-            <div className="modal-box">
-              <h3 className="font-bold text-lg">Hello!</h3>
-              <p className="py-4">
-                Press ESC key or click the button below to close
-              </p>
-              <div className="modal-action">
-                <form method="dialog">
-                  {/* if there is a button in form, it will close the modal */}
-                  <button className="btn">Close</button>
-                </form>
-              </div>
-            </div>
-          </dialog>
-        </div>
-        {/* Open the modal using document.getElementById('ID').showModal() method */}
-        <button
-          className="btn"
-          onClick={() => document.getElementById("my_modal_1").showModal()}
-        >
-          open modal
-        </button>
-        <dialog id="my_modal_1" className="modal">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg">Hello!</h3>
-            <p className="py-4">
-              Press ESC key or click the button below to close
-            </p>
-            <div className="modal-action">
-              <form method="dialog">
-                {/* if there is a button in form, it will close the modal */}
-                <button className="btn">Close</button>
-              </form>
-            </div>
-          </div>
-        </dialog>
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
-            alt=""
+          <Modal
+            id={`modal_${index}`}
+            title={modalContents[index].title}
+            content={modalContents[index].content}
+            onClose={closeModal}
           />
         </div>
-        {/* Open the modal using document.getElementById('ID').showModal() method */}
-        <button
-          className="btn"
-          onClick={() => document.getElementById("my_modal_1").showModal()}
-        >
-          open modal
-        </button>
-        <dialog id="my_modal_1" className="modal">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg">Hello!</h3>
-            <p className="py-4">
-              Press ESC key or click the button below to close
-            </p>
-            <div className="modal-action">
-              <form method="dialog">
-                {/* if there is a button in form, it will close the modal */}
-                <button className="btn">Close</button>
-              </form>
-            </div>
-          </div>
-        </dialog>
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
-            alt=""
-          />
-        </div>
-        {/* Open the modal using document.getElementById('ID').showModal() method */}
-        <button
-          className="btn"
-          onClick={() => document.getElementById("my_modal_1").showModal()}
-        >
-          open modal
-        </button>
-        <dialog id="my_modal_1" className="modal">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg">Hello!</h3>
-            <p className="py-4">
-              Press ESC key or click the button below to close
-            </p>
-            <div className="modal-action">
-              <form method="dialog">
-                {/* if there is a button in form, it will close the modal */}
-                <button className="btn">Close</button>
-              </form>
-            </div>
-          </div>
-        </dialog>
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
-            alt=""
-          />
-        </div>
-        {/* Open the modal using document.getElementById('ID').showModal() method */}
-        <button
-          className="btn"
-          onClick={() => document.getElementById("my_modal_1").showModal()}
-        >
-          open modal
-        </button>
-        <dialog id="my_modal_1" className="modal">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg">Hello!</h3>
-            <p className="py-4">
-              Press ESC key or click the button below to close
-            </p>
-            <div className="modal-action">
-              <form method="dialog">
-                {/* if there is a button in form, it will close the modal */}
-                <button className="btn">Close</button>
-              </form>
-            </div>
-          </div>
-        </dialog>
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg"
-            alt=""
-          />
-        </div>
-        {/* Open the modal using document.getElementById('ID').showModal() method */}
-        <button
-          className="btn"
-          onClick={() => document.getElementById("my_modal_1").showModal()}
-        >
-          open modal
-        </button>
-        <dialog id="my_modal_1" className="modal">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg">Hello!</h3>
-            <p className="py-4">
-              Press ESC key or click the button below to close
-            </p>
-            <div className="modal-action">
-              <form method="dialog">
-                {/* if there is a button in form, it will close the modal */}
-                <button className="btn">Close</button>
-              </form>
-            </div>
-          </div>
-        </dialog>
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg"
-            alt=""
-          />
-        </div>
-        {/* Open the modal using document.getElementById('ID').showModal() method */}
-        <button
-          className="btn"
-          onClick={() => document.getElementById("my_modal_1").showModal()}
-        >
-          open modal
-        </button>
-        <dialog id="my_modal_1" className="modal">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg">Hello!</h3>
-            <p className="py-4">
-              Press ESC key or click the button below to close
-            </p>
-            <div className="modal-action">
-              <form method="dialog">
-                {/* if there is a button in form, it will close the modal */}
-                <button className="btn">Close</button>
-              </form>
-            </div>
-          </div>
-        </dialog>
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg"
-            alt=""
-          />
-        </div>
-        {/* Open the modal using document.getElementById('ID').showModal() method */}
-        <button
-          className="btn"
-          onClick={() => document.getElementById("my_modal_1").showModal()}
-        >
-          open modal
-        </button>
-        <dialog id="my_modal_1" className="modal">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg">Hello!</h3>
-            <p className="py-4">
-              Press ESC key or click the button below to close
-            </p>
-            <div className="modal-action">
-              <form method="dialog">
-                {/* if there is a button in form, it will close the modal */}
-                <button className="btn">Close</button>
-              </form>
-            </div>
-          </div>
-        </dialog>
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg"
-            alt=""
-          />
-        </div>
-        {/* Open the modal using document.getElementById('ID').showModal() method */}
-        <button
-          className="btn"
-          onClick={() => document.getElementById("my_modal_1").showModal()}
-        >
-          open modal
-        </button>
-        <dialog id="my_modal_1" className="modal">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg">Hello!</h3>
-            <p className="py-4">
-              Press ESC key or click the button below to close
-            </p>
-            <div className="modal-action">
-              <form method="dialog">
-                {/* if there is a button in form, it will close the modal */}
-                <button className="btn">Close</button>
-              </form>
-            </div>
-          </div>
-        </dialog>
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg"
-            alt=""
-          />
-        </div>
-        {/* Open the modal using document.getElementById('ID').showModal() method */}
-        <button
-          className="btn"
-          onClick={() => document.getElementById("my_modal_1").showModal()}
-        >
-          open modal
-        </button>
-        <dialog id="my_modal_1" className="modal">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg">Hello!</h3>
-            <p className="py-4">
-              Press ESC key or click the button below to close
-            </p>
-            <div className="modal-action">
-              <form method="dialog">
-                {/* if there is a button in form, it will close the modal */}
-                <button className="btn">Close</button>
-              </form>
-            </div>
-          </div>
-        </dialog>
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg"
-            alt=""
-          />
-        </div>
-        {/* Open the modal using document.getElementById('ID').showModal() method */}
-        <button
-          className="btn"
-          onClick={() => document.getElementById("my_modal_1").showModal()}
-        >
-          open modal
-        </button>
-        <dialog id="my_modal_1" className="modal">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg">Hello!</h3>
-            <p className="py-4">
-              Press ESC key or click the button below to close
-            </p>
-            <div className="modal-action">
-              <form method="dialog">
-                {/* if there is a button in form, it will close the modal */}
-                <button className="btn">Close</button>
-              </form>
-            </div>
-          </div>
-        </dialog>
-        <div>
-          <img
-            className="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg"
-            alt=""
-          />
-        </div>
-        {/* Open the modal using document.getElementById('ID').showModal() method */}
-        <button
-          className="btn"
-          onClick={() => document.getElementById("my_modal_1").showModal()}
-        >
-          open modal
-        </button>
-        <dialog id="my_modal_1" className="modal">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg">Hello!</h3>
-            <p className="py-4">
-              Press ESC key or click the button below to close
-            </p>
-            <div className="modal-action">
-              <form method="dialog">
-                {/* if there is a button in form, it will close the modal */}
-                <button className="btn">Close</button>
-              </form>
-            </div>
-          </div>
-        </dialog>
-      </div>
-    </>
+      ))}
+    </div>
   );
 }
