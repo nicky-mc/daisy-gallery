@@ -38,40 +38,48 @@ export default function RetroPhotos() {
   ];
   const modalContents = [
     {
-      title: "Gallery Image 1",
-      content: "This is the first image in the gallery.",
+      title: "Even Nun's Smoke",
+      content:
+        "This image is a famous image from the Hulton-Deutsch collection.",
     },
     {
-      title: "Gallery Image 2",
-      content: "This is the second image in the gallery.",
+      title: "Arabian Tea Ceremony",
+      content: "This image captures the essence of Arabian cuture.",
     },
     {
-      title: "Gallery Image 3",
-      content: "This is the third image in the gallery.",
+      title: "PUNK",
+      content:
+        "A fantastic image illustrating punk culture, fashion and attitude.",
     },
     {
-      title: "Gallery Image 4",
-      content: "This is the fourth image in the gallery.",
+      title: "Palm Springs in the 1950s",
+      content:
+        "Even to this day if you go to Palm Springs it is like you have been transported back to the 1950s.",
     },
     {
-      title: "Gallery Image 5",
-      content: "This is the fifth image in the gallery.",
+      title: "Tokyo Cool",
+      content:
+        "Japan are not just technology trend setters but also in fashion and they definitely matched America for coolness in the 1960s.",
     },
     {
-      title: "Gallery Image 6",
-      content: "This is the sixth image in the gallery.",
+      title: "Uhura",
+      content:
+        "Uhura brought the fashion to Star Trek - the epitome of cool and I especially remember her incredible hair styles and earings.  Just a bit of a shame that her role was essentially that of a telephone operator.",
     },
     {
-      title: "Gallery Image 7",
-      content: "This is the seventh image in the gallery.",
+      title: "Vinyl Will Never Die",
+      content:
+        "Long live vinyl.  You cannot beat the warmth anologue richness of a vunyl record. FACT!",
     },
     {
-      title: "Gallery Image 8",
-      content: "This is the eighth image in the gallery.",
+      title: "Typewriters",
+      content:
+        "Not just for secretarys. There's something about hitting the keys of a typewriter.",
     },
     {
-      title: "Gallery Image 9",
-      content: "This is the ninth image in the gallery.",
+      title: "The Girl from Impanema",
+      content:
+        "If you want to experience exhuburant, exotic and flaboyant fashion Rio De Janeiro was the place to go in the 1960s.",
     },
   ];
   const openModal = (id) => {
