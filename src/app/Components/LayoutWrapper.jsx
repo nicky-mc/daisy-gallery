@@ -2,7 +2,7 @@
 "use client";
 import React, { useState } from "react";
 import Navbar from "./Navbar";
-import SideDrawer from "./SIdeDrawer";
+import SideDrawer from "./SideDrawer";
 
 const LayoutWrapper = ({ children }) => {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
