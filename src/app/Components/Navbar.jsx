@@ -1,7 +1,7 @@
 // src/app/components/Navbar.jsx
 "use client";
 import React, { useState } from "react";
-import ThemeSelector from "./ThemeSelector";
+import ThemeSelector from "./themeSelector";
 
 const Navbar = ({ toggleDrawer }) => {
   const [theme, setTheme] = useState("default");
