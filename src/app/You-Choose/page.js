@@ -30,7 +30,16 @@ export default function YouChoose() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
-      <h1 className="text-3xl font-bold mb-6">Choose Your Style</h1>
+      <h1 className="text-3xl font-bold mb-4">Choose Your Style</h1>
+
+      {/* Description paragraph */}
+      <p className="text-lg text-gray-300 mb-6 max-w-lg text-center">
+        Use the slider to explore two styles of London's Carnaby Street. Slide
+        to the left for a full-color view, or to the right for a sepia-toned
+        perspective. Drag across the image to choose your preferred style in
+        real-time!
+      </p>
+
       <div
         className="relative w-full max-w-3xl h-80 overflow-hidden rounded-lg"
         ref={sliderRef}
