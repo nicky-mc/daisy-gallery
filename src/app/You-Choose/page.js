@@ -34,10 +34,10 @@ export default function YouChoose() {
 
       {/* Description paragraph */}
       <p className="text-lg text-gray-300 mb-6 max-w-lg text-center">
-        Use the slider to explore two styles of London's Carnaby Street. Slide
-        to the left for a full-color view, or to the right for a sepia-toned
-        perspective. Drag across the image to choose your preferred style in
-        real-time!
+        Use the slider to explore two styles of London&apos;s Carnaby Street.
+        Slide to the left for a full-color view, or to the right for a
+        sepia-toned perspective. Drag across the image to choose your preferred
+        style in real-time!
       </p>
 
       <div
@@ -46,7 +46,7 @@ export default function YouChoose() {
         onMouseMove={(e) => handleMouseMove(e)}
         onTouchMove={(e) => handleMouseMove(e.touches[0])}
       >
-        {/* Full-color classic London photo in the background */}
+        {/* Full-color image */}
         <Image
           src="/Londons_Carnaby_Street.jpg"
           alt="Full-color version of classic London"
@@ -54,25 +54,28 @@ export default function YouChoose() {
           className="object-cover"
         />
 
-        {/* Sepia overlay of the London photo with scale effect */}
+        {/* Sepia overlay image with mask effect */}
         <div
-          className="absolute inset-0 overflow-hidden"
-          style={{ width: `${sliderPosition}%` }}
+          className="absolute inset-0"
+          style={{
+            width: "100%",
+            clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`, // Reveal left part as per slider
+          }}
         >
           <Image
-            src="/Carnabystreet.jpg"
-            alt="b&w version of classic London"
+            src="/Carnabystrt.jpg"
+            alt="Sepia version of classic London"
             fill
-            className="object-cover sepia transform scale-105" // Apply scale effect
+            className="object-cover"
           />
         </div>
 
-        {/* Slider */}
+        {/* DaisyUI Divider for Slider */}
         <div
           className="absolute top-0 bottom-0"
           style={{ left: `${sliderPosition}%` }}
         >
-          <div className="w-1 bg-white h-full transform -translate-x-1/2 cursor-ew-resize"></div>
+          <div className="w-2 h-full bg-white daisy-divider daisy-divider-horizontal cursor-ew-resize transform -translate-x-1/2"></div>
         </div>
       </div>
     </div>
