@@ -33,10 +33,10 @@ export default function HomePage() {
               <p className="mt-2">
                 Welcome to our gallery site, showcasing the versatility of
                 Tailwind and DaisyUI! Explore different pages to see live
-                examples of DaisyUI's styling options and interactive elements.
-                To browse galleries, open the side drawer where you can select
-                from a range of gallery options, each demonstrating a unique set
-                of features.
+                examples of DaisyUI&apos;s styling options and interactive
+                elements. To browse galleries, open the side drawer where you
+                can select from a range of gallery options, each demonstrating a
+                unique set of features.
               </p>
             </div>
           </div>
@@ -51,8 +51,8 @@ export default function HomePage() {
             </div>
             <div className="collapse-content text-gray-700 leading-relaxed">
               <p className="mt-2">
-                DaisyUI's carousel component enhances the user experience by
-                enabling smooth, responsive content sliders. This feature is
+                DaisyUI&apos;s carousel component enhances the user experience
+                by enabling smooth, responsive content sliders. This feature is
                 ideal for creating image galleries or showcasing services. With
                 Tailwind’s control over layout and spacing, you can design
                 carousels that adjust seamlessly across different devices.
@@ -150,9 +150,9 @@ export default function HomePage() {
                 With Tailwind and DaisyUI, typography becomes a core part of the
                 user experience. DaisyUI includes styles for headings, body
                 text, and captions, allowing for expressive and readable text
-                that aligns with the theme. Tailwind's responsive font-sizing
-                and spacing options ensure that text is both accessible and
-                visually appealing across devices.
+                that aligns with the theme. Tailwind&apos;s responsive
+                font-sizing and spacing options ensure that text is both
+                accessible and visually appealing across devices.
               </p>
             </div>
           </div>
