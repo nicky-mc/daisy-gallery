@@ -32,12 +32,7 @@ function SideDrawer({ isOpen, toggleDrawer }) {
         <Link href="/Retro-Photos" className="btn btn-ghost w-full text-left">
           Retro Photos
         </Link>
-        <Link
-          href="/Architectural-Photos"
-          className="btn btn-ghost w-full text-left"
-        >
-          Architectural Photos
-        </Link>
+
         <Link href="/You-Choose" className="btn btn-ghost w-full text-left">
           You Choose
         </Link>
