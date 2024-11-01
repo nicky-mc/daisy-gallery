@@ -9,7 +9,11 @@ function Modal({ id, title, content, onClose }) {
         <h3 className="font-bold text-lg">{title}</h3>
         <p className="py-4">{content}</p>
         <div className="modal-action flex justify-center">
-          <button onClick={onClose} className="btn">
+          <button
+            onClick={onClose}
+            className="btn bg-orange-500 text-white --tw-border-opacity: 1;
+border-color: rgba(55, 65, 81, var(--tw-border-opacity)); hover:bg-slate-700 "
+          >
             Close
           </button>
         </div>
@@ -93,7 +97,7 @@ export default function RetroPhotos() {
             alt={`Gallery Image ${index + 1}`}
           />
           <button
-            className="btn mt-2"
+            className="btn mt-2 bg-white text-orange-600"
             onClick={() => openModal(`modal_${index}`)}
           >
             Click Here For More Info
