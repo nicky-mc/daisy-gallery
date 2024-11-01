@@ -1,6 +1,6 @@
 // src/app/components/ThemeSelector.jsx
 "use client";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 
 // Array of available DaisyUI themes for selection
 const themes = [
@@ -38,27 +38,24 @@ const themes = [
 const ThemeSelector = ({ onThemeChange }) => {
   const [selectedTheme, setSelectedTheme] = useState("default"); // Default theme state
 
-  // Function to apply the selected theme
-  const applyTheme = useCallback(
-    (theme) => {
-      document.documentElement.setAttribute("data-theme", theme);
-      setSelectedTheme(theme);
-      if (onThemeChange) {
-        onThemeChange(theme); // Notify parent component of theme change
-      }
-    },
-    [onThemeChange]
-  );
+  // Function to apply the selected theme by setting `data-theme` on the root <html> element
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute("data-theme", theme); // Changes theme across the app
+    setSelectedTheme(theme); // Updates local component state with the selected theme
+    if (onThemeChange) {
+      onThemeChange(theme); // Notify parent component of theme change
+    }
+  };
 
-  // Load saved theme from localStorage
+  // useEffect hook: Runs only on initial render to load the saved theme from localStorage
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "default";
-    applyTheme(savedTheme);
-  }, [applyTheme]);
+    const savedTheme = localStorage.getItem("theme") || "default"; // Gets saved theme or defaults to 'default'
+    applyTheme(savedTheme); // Applies the initial theme
+  }, []);
 
-  // Save selected theme to localStorage
+  // useEffect hook: Saves the selected theme to localStorage whenever it changes
   useEffect(() => {
-    localStorage.setItem("theme", selectedTheme);
+    localStorage.setItem("theme", selectedTheme); // Saves selected theme for persistence across sessions
   }, [selectedTheme]);
 
   return (
@@ -81,20 +78,15 @@ const ThemeSelector = ({ onThemeChange }) => {
       >
         {themes.map((theme) => (
           <li key={theme}>
-            <label className="flex items-center cursor-pointer">
-              <input
-                type="radio"
-                name="theme-dropdown"
-                className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                aria-label={theme.charAt(0).toUpperCase() + theme.slice(1)}
-                value={theme}
-                checked={selectedTheme === theme}
-                onChange={() => applyTheme(theme)}
-              />
-              <span className="ml-2">
-                {theme.charAt(0).toUpperCase() + theme.slice(1)}
-              </span>
-            </label>
+            <input
+              type="radio"
+              name="theme-dropdown"
+              className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+              aria-label={theme.charAt(0).toUpperCase() + theme.slice(1)}
+              value={theme}
+              checked={selectedTheme === theme}
+              onChange={() => applyTheme(theme)}
+            />
           </li>
         ))}
       </ul>
