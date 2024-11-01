@@ -63,7 +63,7 @@ export default function YouChoose() {
           }}
         >
           <Image
-            src="/Carnabystrt.jpg"
+            src="/CarnabyStrt.jpg"
             alt="Sepia version of classic London"
             fill
             className="object-cover"
