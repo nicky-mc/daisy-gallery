@@ -15,9 +15,9 @@ const Navbar = ({ toggleDrawer }) => {
     <div className="navbar bg-base-200">
       <div className="flex-1">
         <button
-          className="btn btn-ghost normal-case text-xl text-black"
+          className="btn btn-ghost normal-case text-xl text-neutral-content" // Automatically adapts to dark/light backgrounds
           style={{
-            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)", // Text shadow for visibility
+            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)", // Keeps text shadow for added visibility
           }}
           onClick={toggleDrawer} // Sets button as sidebar toggle
         >

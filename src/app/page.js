@@ -13,7 +13,7 @@ export default function HomePage() {
           <p className="text-lg text-gray-200 mb-6 leading-relaxed">
             Interact with our Gallery pages by clicking on the top left to see
             how we used DaisyUI&apos;s features along with Tailwind&apos;s ease
-            of use with out the need for multiple style sheets.
+            of use without the need for multiple style sheets.
           </p>
         </div>
       </section>
@@ -41,7 +41,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Carousel Customization */}
+          {/* Carousel Integration */}
           <div
             tabIndex={1}
             className="collapse collapse-plus border border-base-300 bg-base-200 rounded-box mb-2"
@@ -60,7 +60,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Modal Windows */}
+          {/* Interactive Modals */}
           <div
             tabIndex={2}
             className="collapse collapse-plus border border-base-300 bg-base-200 rounded-box mb-2"
@@ -79,7 +79,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Theme Selection */}
+          {/* Theme Customization */}
           <div
             tabIndex={3}
             className="collapse collapse-plus border border-base-300 bg-base-200 rounded-box mb-2"
@@ -98,7 +98,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* DaisyUI Styling */}
+          {/* Styling Components */}
           <div
             tabIndex={4}
             className="collapse collapse-plus border border-base-300 bg-base-200 rounded-box mb-2"
