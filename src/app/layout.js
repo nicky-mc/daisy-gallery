@@ -1,6 +1,6 @@
 // src/app/layout.js
 import "./globals.css"; // Imports global styles (includes Raleway font setting)
-import LayoutWrapper from "./components/LayoutWrapper";
+import LayoutWrapper from "./Components/LayoutWrapper";
 
 // Metadata for the page
 export const metadata = {
